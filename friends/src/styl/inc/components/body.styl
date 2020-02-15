@@ -1,0 +1,16 @@
+body
+	background-color #edf7ff
+	background-image url("../assets/Smurf-Experience-Thierry-Lechanteur-5-e1532513765893.jpg")
+	position relative
+	&:before
+		content ''
+		background-color rgba(237, 247, 255 .65)
+		position absolute
+		width 100vw
+		height 100%
+		z-index -1
+		
++above(l)
+	body
+		&:before
+			height 100vh
