@@ -1,39 +1,58 @@
 import React, { useState } from "react";
-import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import { axiosWithAuth } from "../../utilities/axiosWithAuth";
 
-export default function EntryLogin() {
+const EntryLogin = props => {
 
 	const [ login, setLogin ] = useState({
-		credentials: {
-			username: "",
-			password: ""
-		}
+		username: "",
+		password: ""
 	});
 
 	const handleChange = e => {
 		setLogin({
-			credentials: {
-				[e.target.name]: e.target.value
-			}});
+			...login,
+			[e.target.name]: e.target.value
+		});
 	};
 
 	const handleSubmit = e => {
 		e.preventDefault();
 		axiosWithAuth()
-			.post("/login", this.state.credentials)
-			.then(res => {
-				localStorage.setItem("token", res.data.payload);
-				props.history.push("/protected");
+			.post("/login", login)
+			.then(response => {
+				localStorage.setItem("token", response.data.payload);
+				setLogin(login);
+				// props.history.push("/friends");
 			})
-			.catch(err => {
+			.catch(error => {
 				localStorage.removeItem("token");
-				console.log("invalid login: ", err);
+				console.log("invalid login: ", error);
 			});
 	};
 
 	return (
-		<form action="">
-
+		<form onSubmit={handleSubmit}>
+			<div>
+				<label>Username:</label>
+				<input
+					name="username"
+					type="text"
+					onChange={handleChange}
+					value={login.username}
+				/>
+			</div>
+			<div>
+				<label>Password:</label>
+				<input
+					name="password"
+					type="text"
+					onChange={handleChange}
+					value={login.password}
+				/>
+			</div>
+			<button type="submit">SUBMIT</button>
 		</form>
 	)
-}
+};
+
+export default EntryLogin;

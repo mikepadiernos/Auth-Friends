@@ -3,7 +3,7 @@ const nano        = require( 'cssnano' ),
 			stylus      = require( 'gulp-stylus' ),
 			postcss     = require( 'gulp-postcss' ),
 			jeet        = require( 'jeet' ),
-			koutoSwiss  = require( 'kouto-swiss' ),
+			// koutoSwiss  = require( 'kouto-swiss' ),
 			rupture     = require( 'rupture' );
 
 
@@ -15,7 +15,11 @@ gulp.task('app', () => {
 
 	return gulp.src('./styl/App.styl')
 		.pipe(stylus({
-			use: [jeet(), koutoSwiss(), rupture()]
+			use: [
+				jeet(),
+				// koutoSwiss(),
+				rupture()
+			]
 		}))
 		.pipe(postcss(processors))
 		.pipe(gulp.dest('./css'));
