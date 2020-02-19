@@ -39,11 +39,11 @@ const FriendsAdd = props => {
 			<div>
 				<h2>Add A Friend</h2>
 				<label>Name:</label>
-				<input className="input" type="text" placeholder="Name" name="name" onChange={handleChanges} />
+				<input className="input" type="text" name="name" onChange={handleChanges} />
 				<label>Age:</label>
-				<input className="input" type="text" placeholder="Age" name="age" onChange={handleChanges} />
+				<input className="input" type="text" name="age" onChange={handleChanges} />
 				<label>Email:</label>
-				<input className="input" type="Email" placeholder="Email" name="email" onChange={handleChanges} />
+				<input className="input" type="Email" name="email" onChange={handleChanges} />
 				<div className="button-group form">
 					<button>
 						Add Friend
