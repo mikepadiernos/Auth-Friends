@@ -22,7 +22,7 @@ const FriendsAdd = props => {
 		e.preventDefault();
 		setData({ ...data });
 		axiosWithAuth()
-			.post("friends", data)
+			.post("/friends", data)
 			.then(res => {
 				console.log("API INFO HERE", res);
 				setData(data);

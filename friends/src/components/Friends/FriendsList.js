@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { axiosWithAuth } from "../../utilities/axiosWithAuth";
 
 // IMPORT CONTEXT: FriendsContext
@@ -9,7 +9,9 @@ import FriendsCard from "./FriendsCard";
 
 export const FriendsList = () => {
 
-	const { friends, setFriends } = useContext(FriendsContext);
+	// const { friends, setFriends } = useContext(FriendsContext);
+
+	const [friends, setFriends] = useState([]);
 
 	console.log("Friends List: ", friends);
 

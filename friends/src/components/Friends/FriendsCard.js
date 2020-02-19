@@ -4,9 +4,13 @@ const FriendsCard = props => {
 
 	return (
 		<article className="card card-friend">
-			<h3>Name: {props.name}</h3>
-			<h4>Age: {props.age}</h4>
-			<h5>Email: {props.email}</h5>
+			<div className="card-header">
+				<h3 className="card-title">{props.name}</h3>
+			</div>
+			<div className="card-body">
+				<div className="card-text"><span>Age </span>{props.age}</div>
+				<div className="card-text"><span>Email </span>{props.email}</div>
+			</div>
 		</article>
 	)
 };

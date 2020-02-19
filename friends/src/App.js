@@ -28,7 +28,7 @@ function App() {
           <div className="container">
             <Header />
             <main id="main-content" className="main-content">
-              <Route exact path="/login" component={EntryLogin} />
+              <Route  path="/login" component={EntryLogin} />
               <ProtectedRoute exact path="/friends" component={FriendsList} />
               <ProtectedRoute exact path="/friends/add" component={FriendsAdd} />
             </main>
