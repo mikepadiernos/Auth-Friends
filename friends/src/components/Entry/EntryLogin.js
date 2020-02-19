@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../../utilities/axiosWithAuth";
 
 const EntryLogin = props => {
+
+	let history = useHistory();
 
 	const [ login, setLogin ] = useState({
 		username: "",
@@ -22,7 +25,7 @@ const EntryLogin = props => {
 			.then(response => {
 				localStorage.setItem("token", response.data.payload);
 				setLogin(login);
-				// props.history.push("/friends");
+				history.push("/friends");
 			})
 			.catch(error => {
 				localStorage.removeItem("token");
@@ -32,6 +35,7 @@ const EntryLogin = props => {
 
 	return (
 		<form onSubmit={handleSubmit}>
+			<h2>Login</h2>
 			<div>
 				<label>Username:</label>
 				<input

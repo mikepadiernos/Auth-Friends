@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 // import axios from 'axios';
 
 // IMPORT ASSETS
-// import "./css/App.css";
+import "./css/App.css";
 
 // IMPORT CONTEXT: SmurfContext
 import FriendsContext from "./contexts/FriendsContext";
@@ -15,6 +15,7 @@ import ProtectedRoute from "./utilities/ProtectedRoute";
 import Header         from "./components/Layout/Header";
 import EntryLogin     from "./components/Entry/EntryLogin";
 import FriendsList    from "./components/Friends/FriendsList";
+import FriendsAdd    from "./components/Friends/FriendsAdd";
 
 function App() {
 
@@ -27,9 +28,9 @@ function App() {
           <div className="container">
             <Header />
             <main id="main-content" className="main-content">
+              <Route exact path="/login" component={EntryLogin} />
               <ProtectedRoute exact path="/friends" component={FriendsList} />
-              <EntryLogin path="/" component={EntryLogin} />
-              {/*<ProtectedRoute exact path="/friends/edit" component={FriendsEdit} />*/}
+              <ProtectedRoute exact path="/friends/add" component={FriendsAdd} />
             </main>
           </div>
         </div>

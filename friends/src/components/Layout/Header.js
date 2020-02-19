@@ -9,7 +9,7 @@ const Header = () => {
 			<nav>
 				<ul>
 					<li>
-						<a href="/">Login</a>
+						<a href="/login">Login</a>
 					</li>
 					{/*<li>*/}
 					{/*	<a href="/logout">Logout</a>*/}

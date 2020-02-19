@@ -4,7 +4,7 @@ import { axiosWithAuth } from "../../utilities/axiosWithAuth";
 // IMPORT CONTEXT: FriendsContext
 import FriendsContext from "../../contexts/FriendsContext";
 
-// IMPORT APP COMPONENTTS
+// IMPORT APP COMPONENTS
 import FriendsCard from "./FriendsCard";
 
 export const FriendsList = () => {
@@ -35,6 +35,9 @@ export const FriendsList = () => {
 					/>
 				))}
 			</div>
+			<span className="button-group">
+				<a href="/friends/add" className="button">Add a friend</a>
+			</span>
 		</section>
 	);
 
