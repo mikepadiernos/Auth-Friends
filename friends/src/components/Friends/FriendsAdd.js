@@ -44,9 +44,12 @@ const FriendsAdd = props => {
 				<input className="input" type="text" placeholder="Age" name="age" onChange={handleChanges} />
 				<label>Email:</label>
 				<input className="input" type="Email" placeholder="Email" name="email" onChange={handleChanges} />
-				<button>
-					Add Friend
-				</button>
+				<div className="button-group form">
+					<button>
+						Add Friend
+					</button>
+					<a href="/friends" className="outline">Cancel</a>
+				</div>
 			</div>
 		</form>
 	);

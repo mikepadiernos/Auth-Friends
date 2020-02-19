@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { axiosWithAuth } from "../../utilities/axiosWithAuth";
+// import { axiosWithAuth } from "../../utilities/axiosWithAuth";
 
 const Header = () => {
 
 	const [logged, setLogged] = useState(localStorage.getItem("token"));
+
+	const handleOnClick = () => {
+		return localStorage.removeItem("token");
+	};
 
 	return (
 		<header id="header" className="header">
@@ -11,16 +15,19 @@ const Header = () => {
 				<h1>Friends!</h1>
 			</div>
 			<nav>
+				<ul>
+					<li><a href="/">Home</a></li>
 				{!logged ? (
-					<ul>
+					<>
 						<li><a href="/login">Login</a></li>
-					</ul>
+					</>
 				) : (
-					<ul>
+					<>
 						<li><a href="/friends">List</a></li>
-						<li><a href="/">Logout</a></li>
-					</ul>
+						<li><a href="/" onClick={handleOnClick}>Logout</a></li>
+					</>
 				)}
+				</ul>
 			</nav>
 		</header>
 	)
