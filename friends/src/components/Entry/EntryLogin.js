@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../../utilities/axiosWithAuth";
+import FriendsContext from "../../contexts/FriendsContext";
 
 const EntryLogin = props => {
+
+	const { logged, setLogged } = useContext(FriendsContext);
 
 	let history = useHistory();
 
@@ -25,6 +28,8 @@ const EntryLogin = props => {
 			.then(response => {
 				localStorage.setItem("token", response.data.payload);
 				setLogin(login);
+				setLogged(localStorage.getItem("token"));
+				console.log("Really logged? ", logged);
 				history.push("/friends");
 			})
 			.catch(error => {

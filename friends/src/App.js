@@ -20,10 +20,11 @@ import FriendsAdd    from "./components/Friends/FriendsAdd";
 function App() {
 
   const [friends, setFriends] = useState([]);
+  const [logged, setLogged] = useState(localStorage.getItem("token"));
 
   return (
     <Router>
-      <FriendsContext.Provider value={{friends, setFriends}} >
+      <FriendsContext.Provider value={{friends, setFriends, logged, setLogged}} >
         <div className="App">
           <div className="container">
             <Header />
